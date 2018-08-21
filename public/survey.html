@@ -190,7 +190,7 @@
             <h5 class="modal-title">Look Who's Your New Friend!</h5>
           </div>
           <div class="modal-body text-center">
-            <h2 id="friend-match"></h2>
+            <h2 id="new-friend"></h2>
             <img id="friend-img" src="" alt="" height="200" width="200">
           </div>
           <div class="modal-footer">
@@ -202,31 +202,39 @@
 
     <script type= "text/javascript">
 
+    $(document).ready(function(){
+
     $("#submit").on("click", function(event){
       event.preventDefault();
     });
 
-    var userInput = {
-      name: $("#name").val().trim(),
-      photo: $("#photo").val().trim(),
+    var user = {
+      name: $("#name").val(),
+      photo: $("#photo").val(),
       scores: [
-        $("#q1").val().trim(),
-        $("#q2").val().trim(),
-        $("#q3").val().trim(),
-        $("#q4").val().trim(),
-        $("#q5").val().trim(),
-        $("#q6").val().trim(),
-        $("#q7").val().trim(),
-        $("#q8").val().trim(),
-        $("#q9").val().trim(),
-        $("#q10").val().trim()
+        $("#q1").val(),
+        $("#q2").val(),
+        $("#q3").val(),
+        $("#q4").val(),
+        $("#q5").val(),
+        $("#q6").val(),
+        $("#q7").val(),
+        $("#q8").val(),
+        $("#q9").val(),
+        $("#q10").val()
     ]
     };
-    console.log(userInput);
+  });
 
-    // $.post("/api/friends", userInput, function(data){
-    //   return data;
-    // });
+  $.post("/api/friends", friendData, function(data){
+    $("#new-friend").text(data.name);
+    $("#friend-img").attr("src", data.photo);
+    $("#result-modal").modal("toggle");
+  });
+
+
+    
+  
 
     </script>
 
