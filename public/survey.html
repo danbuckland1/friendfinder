@@ -4,6 +4,7 @@
 <head>
   <!-- Required meta tags -->
   <meta charset="utf-8">
+
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <!-- Bootstrap CSS -->
@@ -202,86 +203,6 @@
     </div>
   </div>
 
-  <script type="text/javascript">
-
-    $(document).ready(function () {
-
-      $("#submit").on("click", function (event) {
-        event.preventDefault();
-        // console.log("button pushed");
-        function validateForm() {
-          var isValid = true;
-          $(".form-control").each(function () {
-            if ($(this).val() === "") {
-              isValid = false;
-            }
-          });
-
-          $(".chosen-select").each(function () {
-
-            if ($(this).val() === "") {
-              isValid = false;
-            }
-          });
-          return isValid;
-        }
-
-      
-      // If all required fields are filled
-      if (validateForm() == true) {
-        // Create friend with submitted values
-        var userData = {
-          name: $("#name").val().trim(),
-          photo: $("#photo").val().trim(),
-          scores: [
-            $("#q1").val(),
-            $("#q2").val(),
-            $("#q3").val(),
-            $("#q4").val(),
-            $("#q5").val(),
-            $("#q6").val(),
-            $("#q7").val(),
-            $("#q8").val(),
-            $("#q9").val(),
-            $("#q10").val()
-          ]
-        };
-
-        // AJAX post the data to the friends API.
-        $.post("/api/friends", userData, function (data) {
-
-          // Grab the result from the AJAX post so that the best match's name and photo are displayed.
-          $("#new-friend").text(data.name);
-          $("#friend-img").attr("src", data.photo);
-
-          // Show the modal with the best match
-          $("#results-modal").modal("toggle");
-
-        });
-
-        //Clears form after submit
-        $('#name').val("");
-        $('#photo').val("");
-        $('#q1').val("");
-        $('#q2').val("");
-        $('#q3').val("");
-        $('#q4').val("");
-        $('#q5').val("");
-        $('#q6').val("");
-        $('#q7').val("");
-        $('#q8').val("");
-        $('#q9').val("");
-        $('#q10').val("");
-      } else {
-        alert("Please fill out all fields before submitting!");
-      }
-    });
-    });
-
-
-  </script>
-
-
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
@@ -290,6 +211,87 @@
     crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
     crossorigin="anonymous"></script>
+
+    <script>
+
+      $(document).ready(function () {
+  
+        $("#submit").on("click", function (event) {
+          event.preventDefault();
+          // console.log("button pushed");
+          function validateForm() {
+            var isValid = true;
+            $(".form-control").each(function () {
+              if ($(this).val() === "") {
+                isValid = false;
+              }
+            });
+  
+            $(".chosen-select").each(function () {
+  
+              if ($(this).val() === "") {
+                isValid = false;
+              }
+            });
+            return isValid;
+          }
+  
+        
+        // If all required fields are filled
+        if (validateForm() == true) {
+          // Create friend with submitted values
+          var userData = {
+            name: $("#name").val().trim(),
+            photo: $("#photo").val().trim(),
+            scores: [
+              $("#q1").val(),
+              $("#q2").val(),
+              $("#q3").val(),
+              $("#q4").val(),
+              $("#q5").val(),
+              $("#q6").val(),
+              $("#q7").val(),
+              $("#q8").val(),
+              $("#q9").val(),
+              $("#q10").val()
+            ]
+          };
+  
+          // AJAX post the data to the friends API.
+          $.post("/api/friends", userData, function (data) {
+  
+            // Grab the result from the AJAX post so that the best match's name and photo are displayed.
+            $("#new-friend").text(data.name);
+            $("#friend-img").attr("src", data.photo);
+  
+            // Show the modal with the best match
+            $("#results-modal").modal("toggle");
+  
+          });
+  
+          //Clears form after submit
+          $('#name').val("");
+          $('#photo').val("");
+          $('#q1').val("");
+          $('#q2').val("");
+          $('#q3').val("");
+          $('#q4').val("");
+          $('#q5').val("");
+          $('#q6').val("");
+          $('#q7').val("");
+          $('#q8').val("");
+          $('#q9').val("");
+          $('#q10').val("");
+        } else {
+          alert("Please fill out all fields before submitting!");
+        }
+      });
+      });
+  
+  
+    </script>
+    
+    
 </body>
 
 </html>
