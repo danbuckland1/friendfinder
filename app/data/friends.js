@@ -1,4 +1,4 @@
-var friendArray = [
+var friends = [
     {
     "name": "80s John Stamos",
     "photo": "https://riotfest.org/wp-content/uploads/2016/08/john-stamos-mullet-uncle-jesse.jpg",
@@ -162,4 +162,4 @@ var friendArray = [
 
     ];
 
-    module.exports = friendArray;
+    module.exports = friends;
