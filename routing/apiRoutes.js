@@ -30,7 +30,7 @@ module.exports = function(app){
     }
 
     var newFriend = friends[friendMatch];
-    res.join(newFriend);
+    res.json(newFriend);
 
     friendArray.push(req.body);
   });
