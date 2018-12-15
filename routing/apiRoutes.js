@@ -32,6 +32,6 @@ module.exports = function(app) {
     var newFriend = friends[friendMatch];
     res.json(newFriend);
 
-    friendArray.push(req.body);
+    friends.push(req.body);
   });
 };
