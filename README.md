@@ -18,5 +18,9 @@ https://glacial-wave-81658.herokuapp.com/
 
 <img width="833" alt="survey shot" src="https://user-images.githubusercontent.com/36943035/50048239-b8607600-0094-11e9-967a-60c342958a8d.png">
 
+## Author
+
+Dan Buckland
+
 
 
